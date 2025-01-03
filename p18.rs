@@ -1,39 +1,30 @@
-use std::fs::read_to_string;
+use std::fs::File;
+use std::io::{self, BufRead};
+use std::path::Path;
 
 fn main() {
-    let filename = String::from("p18data.txt");
-    let data: Vec<String> = read_to_string(&filename) 
-        .unwrap()
+    let path = Path::new("data.txt");
+    let file = File::open(&path).expect("Could not open file");
+    let mut lines: Vec<Vec<i32>> = io::BufReader::new(file)
         .lines()
-        .map(String::from)
+        .map(|line| line.expect("Could not read line"))
+        .map(|s| s.split(" ").map(|s| s.parse::<i32>().unwrap()).collect())
         .collect();
+    let mut line_count = lines.len();
 
-    let mut array: [i32; 15] = [0; 15];
-    let mut size = 0;
+    while line_count >= 1 {
+        line_count -= 1;
 
-    for row in data.iter() {
-        size += 1;
-        println!("size={size}");
+        let current = lines[line_count].clone();
+        let next = &mut lines[line_count - 1];
 
-        let leftmost = &row[0..2].parse::<i32>().unwrap();
-        array[0] += leftmost;
-
-        for col in 1..size-1 {
-            let left = &row[col*3..col*3+2].parse::<i32>().unwrap();
-            let right = &row[col*3+3..col*3+5].parse::<i32>().unwrap();
-            let largest = std::cmp::max(left, right);
-            array[col] += largest;
+        for idx in 1..current.len() {
+            let left = current[idx - 1];
+            let right = current[idx];
+            let max = std::cmp::max(left, right);
+            next[idx - 1] += max;
         }
 
-        if size > 1 {
-            let rightmost = &row[(size-1)*3..(size-1)*3+2].parse::<i32>().unwrap();
-            println!("rightmost={rightmost}");
-            array[size-1] += rightmost;
-        }
-
-        println!("{:?}", array);
+        println!("{:?}", next);
     }
-
-    println!("{:?}", array);
-    println!("{}", array[0]);
 }
