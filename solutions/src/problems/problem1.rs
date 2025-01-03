@@ -1,4 +1,4 @@
-pub fn problem1() -> i32 {
+pub fn problem1() -> i64 {
     let mut total = 0;
 
     for i in 1..1000 {

@@ -1,6 +1,6 @@
 use std::collections::HashSet;
 
-fn main() {
+pub fn problem45() -> i64 {
     let mut triangles = HashSet::new();
     let mut pentagonals = HashSet::new();
     let mut hexagonals = HashSet::new();
@@ -13,6 +13,5 @@ fn main() {
 
     let mut common: HashSet<i64> = triangles.intersection(&pentagonals).cloned().collect();
     common = common.intersection(&hexagonals).cloned().collect();
-
-    println!("{:?}", common);
+    *common.iter().find(|&n| *n > 40755).unwrap()
 }

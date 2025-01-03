@@ -1,4 +1,4 @@
-pub fn problem2() -> i32 {
+pub fn problem2() -> i64 {
     let mut total = 0;
     let mut a = 1;
     let mut b = 1;
