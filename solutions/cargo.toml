@@ -1,0 +1,10 @@
+[package]
+name = "solutions"
+version = "0.1.0"
+description = "Solutions to Project Euler problems in Rust"
+authors = ["Marcus Näslund <naslundx@gmail.com>"]
+license = "MIT"
+repository = "https://github.com/naslundx/eulerrust"
+
+[dependencies]
+big_number = { path = "../big_number" }

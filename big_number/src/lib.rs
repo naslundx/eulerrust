@@ -1,5 +1,3 @@
-#![allow(dead_code)]
-
 pub struct BigNumber {
     pub negative: bool,
     pub value: Vec<u8>,

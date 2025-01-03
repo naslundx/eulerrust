@@ -1,4 +1,4 @@
-fn main() {
+pub fn problem2() -> i32 {
     let mut total = 0;
     let mut a = 1;
     let mut b = 1;
@@ -10,9 +10,8 @@ fn main() {
             total += c;
         }
 
-        a = b;
-        b = c;
+        (a, b) = (b, c);
     }
 
-    println!("{total}")
+    total
 }
