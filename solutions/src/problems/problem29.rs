@@ -1,10 +1,8 @@
 use std::collections::HashSet;
 
-use bignumber::BigNumber;
+use big_number::BigNumber;
 
-mod bignumber;
-
-fn main() {
+pub fn problem29() -> i64 {
     let mut numbers = HashSet::new();
     let limit = 100;
 
@@ -17,6 +15,5 @@ fn main() {
         }
     }
 
-    //println!("{:?}", numbers);
-    println!("{}", numbers.len());
+    numbers.len() as i64
 }

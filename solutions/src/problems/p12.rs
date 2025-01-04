@@ -1,4 +1,5 @@
 use std::collections::HashMap;
+use util::get_primes;
 
 fn main() {
     let primes = get_primes(10_000);
@@ -8,7 +9,7 @@ fn main() {
 
     loop {
         n += inc;
-        inc += 1; 
+        inc += 1;
 
         let count = divisors(n, &primes);
 
@@ -41,20 +42,4 @@ fn divisors(mut n: i64, primes: &Vec<i64>) -> i64 {
         product *= value + 1;
     }
     product
-}
-
-fn get_primes(limit: usize) -> Vec<i64> {
-    let mut primes = vec![2];
-    primes.push(2);
-
-    let mut candidate = 3;
-
-    while primes.len() < limit {
-        if primes.iter().take_while(|&&p| p * p <= candidate).all(|&p| candidate % p != 0) {
-            primes.push(candidate);
-        }
-        candidate += 2;
-    }
-
-    primes
 }
