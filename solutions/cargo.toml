@@ -8,4 +8,5 @@ repository = "https://github.com/naslundx/eulerrust"
 
 [dependencies]
 big_number = { path = "../big_number" }
+chrono = "0.4.39"
 util = { path = "../util" }

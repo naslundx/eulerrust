@@ -15,3 +15,23 @@ pub fn is_palindrome(n: i32) -> bool {
 
     true
 }
+
+pub fn get_primes(limit: usize) -> Vec<i64> {
+    let mut primes = vec![2];
+    primes.push(2);
+
+    let mut candidate = 3;
+
+    while primes.len() <= limit {
+        if primes
+            .iter()
+            .take_while(|&&p| p * p <= candidate)
+            .all(|&p| candidate % p != 0)
+        {
+            primes.push(candidate);
+        }
+        candidate += 2;
+    }
+
+    primes
+}

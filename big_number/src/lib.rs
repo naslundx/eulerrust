@@ -35,6 +35,10 @@ impl BigNumber {
         self.value.iter().map(|digit| *digit as i32).sum()
     }
 
+    pub fn digits(&self) -> usize {
+        self.value.len()
+    }
+
     pub fn flip(&self) -> BigNumber {
         BigNumber {
             negative: !self.negative,

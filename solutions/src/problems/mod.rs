@@ -1,6 +1,10 @@
 pub mod problem1;
-pub mod problem2;
-pub mod problem4;
-pub mod problem6;
 pub mod problem16;
+pub mod problem19;
+pub mod problem2;
+pub mod problem25;
+pub mod problem4;
 pub mod problem45;
+pub mod problem6;
+pub mod problem7;
+pub mod problem9;
