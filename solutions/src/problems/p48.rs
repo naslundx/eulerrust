@@ -1,5 +1,3 @@
-mod bignumber;
-
 fn main() {
     let digit_limit = 100000000000;
     let mut sum = 0;

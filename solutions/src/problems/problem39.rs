@@ -1,16 +1,14 @@
-mod bignumber;
-
-fn main() {
+pub fn problem39() -> i64 {
     let mut best_idx = 0;
     let mut best_result = 0;
-    for n in 4..=1000 {
-        let result = number_of_solutions(n);
+    for p in 4..=1000 {
+        let result = number_of_solutions(p);
         if result > best_result {
             best_result = result;
-            best_idx = n;
+            best_idx = p;
         }
     }
-    println!("{}, {}", best_idx, best_result);
+    best_idx
 }
 
 fn number_of_solutions(n: i64) -> i64 {

@@ -1,23 +1,18 @@
 use std::collections::HashMap;
 use util::get_primes;
 
-fn main() {
+pub fn problem12() -> i64 {
     let primes = get_primes(10_000);
 
     let mut n: i64 = 0;
     let mut inc: i64 = 1;
 
-    loop {
+    while divisors(n, &primes) <= 500 {
         n += inc;
         inc += 1;
-
-        let count = divisors(n, &primes);
-
-        if count > 500 {
-            println!("{n} has {count} divisors");
-            break;
-        }
     }
+
+    n
 }
 
 fn divisors(mut n: i64, primes: &Vec<i64>) -> i64 {

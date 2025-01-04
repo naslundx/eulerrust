@@ -1,16 +1,16 @@
 use std::fs::File;
 use std::io::{self, BufRead};
 
-fn main() {
-    let triangle_numbers: Vec<i32> = (1..=26).map(|n| n * (n + 1) / 2).collect();
-
-    let file = File::open("words.txt").unwrap();
+pub fn problem42() -> i64 {
+    let file = File::open("words.txt").unwrap(); // TODO
     let first_line = io::BufReader::new(file)
         .lines()
         .next()
         .unwrap()
         .unwrap()
         .replace("\"", "");
+
+    let triangle_numbers: Vec<i32> = (1..=26).map(|n| n * (n + 1) / 2).collect();
 
     let count = first_line
         .split(',')
@@ -19,7 +19,7 @@ fn main() {
         .filter(|s| triangle_numbers.contains(&score(s)))
         .count();
 
-    println!("{}", count);
+    count as i64
 }
 
 fn score(word: &str) -> i32 {

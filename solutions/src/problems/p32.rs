@@ -1,4 +1,5 @@
 use std::collections::HashSet;
+use util::is_pandigital;
 
 fn main() {
     let mut products = HashSet::new();
@@ -26,16 +27,4 @@ fn main() {
     let sum: i32 = products.iter().sum();
 
     println!("{}", sum);
-}
-
-fn is_pandigital(s: &str) -> bool {
-    if s.len() != 9 {
-        return false;
-    }
-    for i in 1..=9 {
-        if !s.contains(&i.to_string()) {
-            return false;
-        }
-    }
-    true
 }

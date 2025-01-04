@@ -1,4 +1,4 @@
-fn main() {
+pub fn problem43() -> i64 {
     let mut sum = 0i64;
     for d_1 in 0..10 {
         for d_2 in 0..10 {
@@ -101,7 +101,7 @@ fn main() {
             }
         }
     }
-    println!("{sum}");
+    sum
 }
 
 fn check_div(n1: i32, n2: i32, n3: i32, d: i32) -> bool {

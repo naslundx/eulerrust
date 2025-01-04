@@ -1,3 +1,5 @@
+use util::{digit_count, is_pandigital_str};
+
 fn main() {
     for n in 1..15000 {
         let mut numbers = vec![];
@@ -7,7 +9,7 @@ fn main() {
             m_max = m;
             let term = n * m;
             numbers.push(term);
-            digit_count += digits(term);
+            digit_count += digit_count(term);
             if digit_count >= 9 {
                 break;
             }
@@ -19,26 +21,10 @@ fn main() {
             .iter()
             .fold(String::new(), |acc, n| acc + &n.to_string());
 
-        if is_pandigital(&concatenated) {
+        if is_pandigital_str(&concatenated) {
             println!("{n}, 1..{m_max} -> {concatenated}");
             let q: i32 = concatenated.parse().expect("i32 size");
             println!("{q}");
         }
     }
-}
-
-fn digits(n: i32) -> i32 {
-    n.to_string().len() as i32
-}
-
-fn is_pandigital(s: &str) -> bool {
-    if s.len() != 9 {
-        return false;
-    }
-    for i in 1..=9 {
-        if !s.contains(&i.to_string()) {
-            return false;
-        }
-    }
-    true
 }

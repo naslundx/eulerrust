@@ -1,4 +1,5 @@
 use std::collections::HashSet;
+use utils::divisor_sum;
 
 fn main() {
     let limit = 28123;
@@ -31,14 +32,4 @@ fn main() {
     }
 
     println!("{sum}");
-}
-
-fn divisor_sum(n: i32) -> i32 {
-    let mut sum = 1;
-    for i in 2..n {
-        if n % i == 0 {
-            sum += i;
-        }
-    }
-    sum
 }

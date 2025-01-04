@@ -1,13 +1,7 @@
 use std::collections::HashMap;
 
-fn main() {
-    let mut result = 0;
-    for i in 1..=1000 {
-        let count = digit_to_text(i);
-        println!("{i}\t-> {count}");
-        result += count;
-    }
-    println!("{result}");
+pub fn problem17() -> i64 {
+    (1..=1000).map(digit_to_text).sum::<i32>() as i64
 }
 
 fn digit_to_text(number: i32) -> i32 {
@@ -63,8 +57,6 @@ fn digit_to_text(number: i32) -> i32 {
         let rest = digit_to_text(number - hundreds * 100);
 
         let contribution = *data.get(&hundreds).unwrap() + 7;
-
-        println!("{number} {hundreds} {rest} {contribution}");
 
         if rest > 0 {
             return contribution + 3 + rest;

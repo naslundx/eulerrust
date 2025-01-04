@@ -1,4 +1,5 @@
 use std::collections::HashSet;
+use util::is_pandigital_str;
 
 fn main() {
     let mut primes = HashSet::new();
@@ -24,7 +25,7 @@ fn main() {
         //println!("{}", p);
         if *p > best_prime {
             let s = p.to_string();
-            if is_pandigital(&s) {
+            if is_pandigital_str(&s) {
                 best_prime = *p;
                 println!("found: {}", p);
             }
@@ -32,13 +33,4 @@ fn main() {
     }
 
     println!("best: {}", best_prime);
-}
-
-fn is_pandigital(s: &str) -> bool {
-    for i in 1..=s.len() {
-        if !s.contains(&i.to_string()) {
-            return false;
-        }
-    }
-    true
 }

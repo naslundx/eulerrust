@@ -1,4 +1,5 @@
 use std::collections::HashMap;
+use utils::divisor_sum;
 
 fn main() {
     let mut divisors = HashMap::new();
@@ -18,8 +19,4 @@ fn main() {
     }
 
     println!("{sum}");
-}
-
-fn divisor_sum(n: i32) -> i32 {
-    1 + (2..n).filter(|d| n % d == 0).sum()
 }
