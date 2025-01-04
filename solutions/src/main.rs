@@ -1,7 +1,3 @@
-extern crate big_number;
-extern crate chrono;
-extern crate util;
-
 use std::env;
 
 mod problems;
@@ -24,6 +20,7 @@ fn main() {
         Ok(16) => problem16::problem16(),
         Ok(19) => problem19::problem19(),
         Ok(25) => problem25::problem25(),
+        Ok(44) => problem44::problem44(),
         Ok(45) => problem45::problem45(),
 
         _ => panic!("Invalid problem ID"),

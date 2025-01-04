@@ -2,6 +2,7 @@
 name = "solutions"
 version = "0.1.0"
 description = "Solutions to Project Euler problems in Rust"
+edition = "2021"
 authors = ["Marcus Näslund <naslundx@gmail.com>"]
 license = "MIT"
 repository = "https://github.com/naslundx/eulerrust"
