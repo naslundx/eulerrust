@@ -1,8 +1,8 @@
 use std::fs::read_to_string;
 
-fn main() {
-    let filename = String::from("p22data.txt");
-    let mut names: Vec<String> = read_to_string(&filename) 
+pub fn problem22() -> i64 {
+    let filename = String::from("assets/problem22.txt");
+    let mut names: Vec<String> = read_to_string(&filename)
         .unwrap()
         .split(",")
         .map(String::from)
@@ -16,12 +16,11 @@ fn main() {
         .iter()
         .enumerate()
         .fold(0, |acc, (idx, nxt)| acc + score(&nxt) * (idx as u64 + 1));
-        
-    println!("{total}");
+
+    total as i64
 }
 
 fn score(name: &str) -> u64 {
-    name.chars().fold(
-        0, |cur, nxt| cur + (nxt as u64 - 'A' as u64 + 1)
-    )
+    name.chars()
+        .fold(0, |cur, nxt| cur + (nxt as u64 - 'A' as u64 + 1))
 }
