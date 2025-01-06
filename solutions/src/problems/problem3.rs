@@ -6,11 +6,5 @@ pub fn problem3() -> i64 {
 
     let primes = get_primes(n_sqrt / 10);
 
-    for p in primes.iter().rev() {
-        if n % p == 0 {
-            return *p;
-        }
-    }
-
-    0
+    *primes.iter().rev().find(|&&p| n % p == 0).unwrap()
 }
