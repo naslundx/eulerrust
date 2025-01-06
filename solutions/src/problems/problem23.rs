@@ -1,7 +1,7 @@
 use std::collections::HashSet;
-use utils::divisor_sum;
+use util::divisor_sum;
 
-fn main() {
+pub fn problem23() -> i64 {
     let limit = 28123;
     let mut map: HashSet<i32> = HashSet::new();
 
@@ -11,13 +11,8 @@ fn main() {
         }
     }
 
-    println!("done");
-
     let mut sum = 0;
     for i in 1..=limit {
-        if i % 5000 == 0 {
-            println!("{}", i);
-        }
         let mut candidate = true;
         for j in &map {
             let diff = i - j;
@@ -31,5 +26,5 @@ fn main() {
         }
     }
 
-    println!("{sum}");
+    sum as i64
 }
