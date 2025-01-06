@@ -3,8 +3,7 @@ use util::get_primes;
 
 pub fn problem49() -> i64 {
     let mut primes = HashSet::new();
-    let n = 11000;
-    for p in get_primes(n) {
+    for p in get_primes(10000) {
         primes.insert(p);
     }
 
