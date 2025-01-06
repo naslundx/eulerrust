@@ -40,6 +40,7 @@ fn main() {
         Ok(43) => problem43::problem43(),
         Ok(44) => problem44::problem44(),
         Ok(45) => problem45::problem45(),
+        Ok(49) => problem49::problem49(),
 
         _ => panic!("Invalid problem ID"),
     };

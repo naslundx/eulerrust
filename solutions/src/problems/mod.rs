@@ -23,6 +23,7 @@ pub mod problem42;
 pub mod problem43;
 pub mod problem44;
 pub mod problem45;
+pub mod problem49;
 pub mod problem6;
 pub mod problem7;
 pub mod problem8;
