@@ -1,5 +1,5 @@
-fn main() {
-    let content = std::fs::read_to_string("p8data.txt").expect("Failed to read file");
+pub fn problem8() -> i64 {
+    let content = std::fs::read_to_string("assets/problem8.txt").expect("Failed to read file");
     let content = content.replace("\n", "");
 
     let mut highest: i64 = 0;
@@ -25,12 +25,13 @@ fn main() {
 
         if running_product > highest {
             highest = running_product;
+            println!("{highest}");
         }
     }
 
-    println!("{highest}");
+    highest
 }
 
 fn get_digit(content: &String, index: usize) -> i64 {
-    return content.chars().nth(index).unwrap().to_digit(10).unwrap() as i64;
+    content.chars().nth(index).unwrap().to_digit(10).unwrap() as i64
 }
