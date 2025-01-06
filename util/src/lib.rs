@@ -18,7 +18,6 @@ pub fn is_palindrome(n: i32) -> bool {
 
 pub fn get_primes(limit: usize) -> Vec<i64> {
     let mut primes = vec![2];
-    primes.push(2);
 
     let mut candidate = 3;
 
