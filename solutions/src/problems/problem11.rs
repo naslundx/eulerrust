@@ -1,9 +1,9 @@
 use std::fs::read_to_string;
 
-fn main() {
+pub fn problem11() -> i64 {
     let size = 20;
     let stride = 4;
-    let content = read_lines(&String::from("p11data.txt"));
+    let content = read_lines(&String::from("assets/problem11.txt"));
     let mut best = 0;
 
     for start_row in 0..size {
@@ -12,7 +12,6 @@ fn main() {
                 let row = get_stride(start_row, start_col, 0, 1, stride, &content);
                 if row > best {
                     best = row;
-                    println!("Found (row) {row} at row={start_row} and col={start_col}");
                 }
             }
 
@@ -20,7 +19,6 @@ fn main() {
                 let col = get_stride(start_row, start_col, 1, 0, stride, &content);
                 if col > best {
                     best = col;
-                    println!("Found (col) {col} at row={start_row} and col={start_col}");
                 }
             }
 
@@ -28,7 +26,6 @@ fn main() {
                 let diag_dr = get_stride(start_row, start_col, 1, 1, stride, &content);
                 if diag_dr > best {
                     best = diag_dr;
-                    println!("Found (dia_dr) {diag_dr} at row={start_row} and col={start_col}");
                 }
             }
 
@@ -36,13 +33,12 @@ fn main() {
                 let diag_dl = get_stride(start_row, start_col, 1, -1, stride, &content);
                 if diag_dl > best {
                     best = diag_dl;
-                    println!("Found (dia_dl) {diag_dl} at row={start_row} and col={start_col}");
                 }
             }
         }
     }
 
-    println!("Best: {best}");
+    best as i64
 }
 
 fn read_lines(filename: &str) -> Vec<String> {
