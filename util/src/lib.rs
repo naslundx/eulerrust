@@ -85,3 +85,7 @@ pub fn is_pandigital_str(s: &str) -> bool {
 pub fn divisor_sum(n: i32) -> i32 {
     1 + (2..n).filter(|d| n % d == 0).sum::<i32>()
 }
+
+pub fn factorial(n: i64) -> i64 {
+    (1..=n).product()
+}

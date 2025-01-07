@@ -34,6 +34,7 @@ fn main() {
         Ok(21) => problem21::problem21(),
         Ok(22) => problem22::problem22(),
         Ok(23) => problem23::problem23(),
+        Ok(24) => problem24::problem24(),
         Ok(25) => problem25::problem25(),
         Ok(26) => problem26::problem26(),
         Ok(27) => problem27::problem27(),
