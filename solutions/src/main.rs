@@ -33,6 +33,7 @@ fn main() {
         Ok(22) => problem22::problem22(),
         Ok(23) => problem23::problem23(),
         Ok(25) => problem25::problem25(),
+        Ok(26) => problem26::problem26(),
         Ok(28) => problem28::problem28(),
         Ok(29) => problem29::problem29(),
         Ok(30) => problem30::problem30(),
@@ -40,7 +41,9 @@ fn main() {
         Ok(32) => problem32::problem32(),
         Ok(33) => problem33::problem33(),
         Ok(34) => problem34::problem34(),
+        Ok(35) => problem35::problem35(),
         Ok(36) => problem36::problem36(),
+        Ok(37) => problem37::problem37(),
         Ok(38) => problem38::problem38(),
         Ok(39) => problem39::problem39(),
         Ok(40) => problem40::problem40(),
@@ -51,6 +54,7 @@ fn main() {
         Ok(45) => problem45::problem45(),
         Ok(48) => problem48::problem48(),
         Ok(49) => problem49::problem49(),
+        Ok(50) => problem50::problem50(),
 
         _ => panic!("Invalid problem ID"),
     };

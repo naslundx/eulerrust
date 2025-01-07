@@ -1,4 +1,4 @@
-fn main() {
+pub fn problem50() -> i64 {
     let mut primes: Vec<i64> = vec![];
     let n = 1100000;
     let mut is_prime = vec![true; n + 1];
@@ -16,16 +16,12 @@ fn main() {
         }
     }
 
-    //println!("{:?}", primes);
-
     let mut best_run = 0;
     let mut best_sum = 0i64;
 
     let limit = primes.iter().position(|&n| n >= 1000000).unwrap() as usize;
 
-    println!("limit={limit}");
     for start_idx in 0..limit {
-        println!("{start_idx}");
         let mut sum = 0i64;
         for end_idx in start_idx..=limit {
             let next_prime = *primes.get(end_idx).expect("exists") as i64;
@@ -37,9 +33,9 @@ fn main() {
             if run >= best_run && primes.contains(&sum) {
                 best_run = run;
                 best_sum = sum;
-                //println!("sum={sum}, run={run}, p={next_prime} start->end: {start_idx}->{end_idx}");
             }
         }
     }
-    println!("best_run={best_run}, best_sum={best_sum}");
+
+    best_sum as i64
 }

@@ -1,6 +1,6 @@
 use std::collections::HashSet;
 
-fn main() {
+pub fn problem35() -> i64 {
     let mut primes: HashSet<i32> = HashSet::new();
     let n = 1000000;
     let mut is_prime = vec![true; n + 1];
@@ -18,35 +18,26 @@ fn main() {
         }
     }
 
-    let mut counter = 1;
+    let mut counter = 0;
 
-    for n in (3..1000000).step_by(2) {
-        if n % 100000 == 0 {
-            println!("checking {n}");
-        }
-        if !primes.contains(&n) {
-            continue;
-        }
+    for n in &primes {
         let mut found = true;
-        let mut n_rotated = rotate(n);
-        while n != n_rotated {
-            if n.to_string().len() != n_rotated.to_string().len() {
-                found = false;
-                break;
-            }
-            if !primes.contains(&n_rotated) {
+        let mut n_rotated = rotate(*n);
+
+        while *n != n_rotated {
+            if n.to_string().len() != n_rotated.to_string().len() || !primes.contains(&n_rotated) {
                 found = false;
                 break;
             }
             n_rotated = rotate(n_rotated);
         }
+
         if found {
-            println!("{n}");
             counter += 1;
         }
     }
 
-    println!("{counter}");
+    counter
 }
 
 fn rotate(n: i32) -> i32 {

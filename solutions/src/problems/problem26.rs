@@ -1,24 +1,24 @@
-fn main() {
-    let mut best_i = 0;
+pub fn problem26() -> i64 {
+    let mut best_d = 0;
     let mut best_length = 0;
-    for i in 2..=1000 {
-        let length = division_length(i);
+
+    for d in 2..=1000 {
+        let length = division_length(d);
 
         if length > best_length {
-            best_i = i;
+            best_d = d;
             best_length = length;
         }
     }
 
-    println!("{}: {}", best_i, best_length);
+    best_d as i64
 }
 
 fn division_length(a: u32) -> usize {
     let mut fraction = vec![];
-
     let mut n = 10;
 
-    loop {
+    while n != 0 {
         let q = n / a;
         let r = n % a;
         let data = (q, r, n);
@@ -27,12 +27,6 @@ fn division_length(a: u32) -> usize {
         }
         fraction.push(data);
         n = r * 10;
-        if n == 0 {
-            break;
-        }
-
-        //println!("q={q}, r={r}, n={n}");
-        //std::thread::sleep(std::time::Duration::from_millis(100));
     }
 
     fraction.len()
