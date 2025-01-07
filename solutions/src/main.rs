@@ -15,6 +15,7 @@ fn main() {
         Ok(2) => problem2::problem2(),
         Ok(3) => problem3::problem3(),
         Ok(4) => problem4::problem4(),
+        Ok(5) => problem5::problem5(),
         Ok(6) => problem6::problem6(),
         Ok(7) => problem7::problem7(),
         Ok(8) => problem8::problem8(),
