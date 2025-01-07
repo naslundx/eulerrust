@@ -1,4 +1,4 @@
-fn main() {
+pub fn problem46() -> i64 {
     let mut primes = std::collections::HashSet::new();
     let mut is_prime = vec![true; 1000001];
     is_prime[0] = false;
@@ -36,9 +36,9 @@ fn main() {
             }
             s += 1;
         }
+        
         if !success {
-            println!("{}", n);
-            break;
+            return n;
         }
     }
 }

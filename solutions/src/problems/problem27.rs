@@ -1,6 +1,6 @@
 use std::collections::HashSet;
 
-fn main() {
+pub fn problem27() -> i64 {
     let mut primes: HashSet<i64> = HashSet::new();
     let n = 100000;
     let mut is_prime = vec![true; n + 1];
@@ -26,7 +26,6 @@ fn main() {
         if !primes.contains(&(b as i64).abs()) {
             continue;
         }
-        println!("b={b}");
         for a in -999..1000 {
             let mut n = 0;
 
@@ -39,16 +38,10 @@ fn main() {
             }
 
             if n > best_run {
-                best_a = a;
-                best_b = b;
-                best_run = n;
-                println!("n2 + {a}n + {b} -> {best_run}");
+                (best_a, best_b, best_run) = (a, b, n);
             }
         }
     }
 
-    println!(
-        "a={best_a}, b={best_b}, run={best_run}, product={}",
-        best_a * best_b
-    );
+    best_a * best_b
 }

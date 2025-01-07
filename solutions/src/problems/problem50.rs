@@ -25,7 +25,7 @@ pub fn problem50() -> i64 {
         let mut sum = 0i64;
         for end_idx in start_idx..=limit {
             let next_prime = *primes.get(end_idx).expect("exists") as i64;
-            sum = sum + next_prime;
+            sum += next_prime;
             if sum > 1000000 {
                 break;
             }
