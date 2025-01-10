@@ -11,4 +11,5 @@ repository = "https://github.com/naslundx/eulerrust"
 big_number = { path = "../big_number" }
 chrono = "0.4.39"
 itertools = "0.14.0"
+paste = "1.0.15"
 util = { path = "../util" }
