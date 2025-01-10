@@ -1,12 +1,8 @@
 use util::{is_palindrome_i128, to_binary};
 
 pub fn problem36() -> i64 {
-    let mut sum = 0i64;
-    for i in 1..1000000 {
-        let ib = to_binary(i);
-        if is_palindrome_i128(i) && is_palindrome_i128(ib) {
-            sum += i as i64;
-        }
-    }
-    sum
+    (1i128..1_000_000i128)
+        .filter(|&x| is_palindrome_i128(x))
+        .filter(|&x| is_palindrome_i128(to_binary(x)))
+        .sum::<i128>() as i64
 }

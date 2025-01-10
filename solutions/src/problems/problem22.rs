@@ -9,7 +9,6 @@ pub fn problem22() -> i64 {
         .map(|s| s.replace("\"", ""))
         .collect();
 
-    //names.truncate(3);
     names.sort();
 
     let total = names

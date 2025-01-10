@@ -1,17 +1,10 @@
 use std::collections::HashMap;
 
 pub fn problem30() -> i64 {
-    let mut fifths: HashMap<u64, u64> = HashMap::new();
+    let numbers = (0u64..=9u64).map(|n| n.pow(5));
+    let fifths: HashMap<u64, u64> = HashMap::from_iter((0u64..=9u64).zip(numbers));
 
-    for i in 0..=9 {
-        fifths.insert(i, i.pow(5));
-    }
-
-    let sum = (2u64..400000u64)
-        .filter(|n| is_match(*n, &fifths))
-        .sum::<u64>() as i64;
-
-    sum
+    (2..400000).filter(|n| is_match(*n, &fifths)).sum::<u64>() as i64
 }
 
 fn is_match(n: u64, fifths: &HashMap<u64, u64>) -> bool {
@@ -21,5 +14,5 @@ fn is_match(n: u64, fifths: &HashMap<u64, u64>) -> bool {
         sum += fifths[&(num % 10)];
         num /= 10;
     }
-    sum == n
+    sum == n as u64
 }

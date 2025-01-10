@@ -14,10 +14,9 @@ pub fn problem28() -> i64 {
             r_counter = 0;
             corners += 1;
 
-            if corners % 2 == 0 {
-                diag_ul_to_dr.push(idx);
-            } else {
-                diag_ur_to_dl.push(idx);
+            match corners % 2 {
+                0 => diag_ul_to_dr.push(idx),
+                _ => diag_ur_to_dl.push(idx),
             }
 
             // completed loop

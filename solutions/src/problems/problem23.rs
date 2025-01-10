@@ -3,25 +3,16 @@ use util::divisor_sum;
 
 pub fn problem23() -> i64 {
     let limit = 28123;
-    let mut map: HashSet<i32> = HashSet::new();
-
-    for i in 2..limit {
-        if divisor_sum(i) > i {
-            map.insert(i);
-        }
-    }
+    let abundants = (2..limit).filter(|&i| divisor_sum(i) > i);
+    let map: HashSet<i32> = HashSet::from_iter(abundants);
 
     let mut sum = 0;
     for i in 1..=limit {
-        let mut candidate = true;
-        for j in &map {
-            let diff = i - j;
-            if diff > 0 && map.contains(&diff) {
-                candidate = false;
-                break;
-            }
-        }
-        if candidate {
+        if let None = map
+            .iter()
+            .filter(|&&x| x < i)
+            .find(|&&x| map.contains(&(i - x)))
+        {
             sum += i;
         }
     }

@@ -8,7 +8,7 @@ pub fn problem25() -> i64 {
     while b.digits() < 1000 {
         idx += 1;
 
-        let c = a.add(&b).clone();
+        let c = a.add(&b);
 
         (a, b) = (b, c);
     }
